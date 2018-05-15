@@ -13,7 +13,8 @@ Please note that this project is released with a [Contributor Code of Conduct][c
 
 0. [Fork][fork] and clone the repository
 0. Configure and install the dependencies: `script/bootstrap`
-0. Make sure the tests pass on your machine: `rake`
+0. Setup test fixtures: `rake setup`
+0. Make sure the tests pass on your machine: `rake test`
 0. Create a new branch: `git checkout -b my-branch-name`
 0. Make your change, add tests, and make sure the tests still pass
 0. Push to your fork and [submit a pull request][pr]
@@ -25,6 +26,15 @@ Here are a few things you can do that will increase the likelihood of your pull 
 - Write tests.
 - Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
 - Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+
+#### Adding a new Dependency Source
+
+Pull requests that include a new dependency source must also
+
+- Include [documentation](docs/sources) for the new source and update the [documented source list](README.md#sources).
+- Add a [setup script](script/source-setup) if needed.
+- Include [tests](test/source) and [test fixtures](test/fixtures) needed to verify the source in CI.
+- Add a CI job to [.travis.yml](.travis.yml).
 
 ## Releasing
 If you are the current maintainer of this gem:
